@@ -1,39 +1,36 @@
 import axios from 'axios'
-import React from 'react'
+import { useEffect, useState } from 'react'
+import Table from './components/Table';
+import HomePage from './pages/HomePage';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import NotFound from './pages/NotFound';
 
-class App extends React.Component {
-  
-  state = { details: [], }
 
-  componentDidMount(): void {
-    let data;
+
+function App() {
+  const [details, setDetails] = useState([])
+
+  useEffect(() => {
     axios.get("http://127.0.0.1:8000/api/index/")
       .then(res => {
-        data = res.data;
-        this.setState({
-          details: data
-        })
+        setDetails(res.data)
       })
-      .catch(error => { console.error(error)})
-  }
+      .catch(error =>{
+        console.error(error)
+      });
+  }, []);
 
-  render(): React.ReactNode {
-    return(
-      <div>
-        <header>Data from Django API</header>
-        <hr />
-        {this.state.details.map((output, id) => (
-          <div key={id}>
-            <div>
-              <h2>Name: {output.name} Author: {output.author} Publish Date: {output.release_date}</h2>
-              {/* <h3>{output.genre}</h3> */}
-            </div>
-          </div>
-        ))}
-      </div>
-    )
-  }
+  return(
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<HomePage />}/>
+        <Route 
+            path='/table' element={<Table details={details}/>}
+        />
+        <Route path='*' element={<NotFound />}/>
+      </Routes>
+    </BrowserRouter>
+  )
 }
-
 
 export default App
