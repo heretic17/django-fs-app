@@ -18,4 +18,4 @@ def detail(request, book_id):
 
 def book(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
-    return HttpResponse(f"Book ID: {book_id} Book Name: {book.name}, Author: {book.author}, Genre: {book.genre}, Publish Date: {book.release_date}.")
+    return HttpResponse(f"Book ID: {book_id} Book Name: {book.name}, Author: {book.author}, Genre: {book.genre}, Publish Date: {book.publish_date}.")

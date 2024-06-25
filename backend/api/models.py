@@ -26,7 +26,7 @@ class Book(models.Model):
         blank=True
     )
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    release_date = models.DateField()
+    publish_date = models.DateField()
 
     def __str__(self):
         return self.name
