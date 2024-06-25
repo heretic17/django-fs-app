@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import Table from './components/Table';
 import HomePage from './pages/HomePage';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import NotFound from './pages/NotFound';
+import MainPage from './pages/MainPage';
 
 
 
@@ -25,7 +25,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />}/>
         <Route 
-            path='/table' element={<Table details={details}/>}
+            path='/table' element={<MainPage details={details}/>}
         />
         <Route path='*' element={<NotFound />}/>
       </Routes>
