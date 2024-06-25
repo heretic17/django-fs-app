@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import MainPage from './pages/MainPage';
+import AuthorDetails from './components/AuthorDetails';
 
 
 
@@ -24,6 +25,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<HomePage />}/>
+        <Route path='/author' element={<AuthorDetails details={details} />}/>
         <Route 
             path='/table' element={<MainPage details={details}/>}
         />
