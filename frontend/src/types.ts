@@ -1,6 +1,8 @@
 type Detail = {
     name: string,
-    author: string,
+    author: {
+        name: string
+    },
     genre: string,
     start_date: string,
     finish_date: string,
