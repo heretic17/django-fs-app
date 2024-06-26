@@ -12,7 +12,7 @@ function App() {
   const [details, setDetails] = useState([])
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/index/")
+    axios.get(import.meta.env.VITE_API_URL)
       .then(res => {
         setDetails(res.data)
       })
@@ -20,6 +20,7 @@ function App() {
         console.error(error)
       });
   }, []);
+
 
   return(
     <BrowserRouter>

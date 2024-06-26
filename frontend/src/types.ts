@@ -2,7 +2,8 @@ type Detail = {
     name: string,
     author: string,
     genre: string,
-    publish_date: string
+    start_date: string,
+    finish_date: string,
 }
 
 type Props = {

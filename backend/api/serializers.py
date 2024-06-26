@@ -7,11 +7,8 @@ class AuthorSerializer(serializers.ModelSerializer):
         fields = ["id", "name"]
 
 class BookSerializer(serializers.ModelSerializer):
-    author = serializers.SerializerMethodField()  # Use a method field to get the author's name
+    author = AuthorSerializer(read_only=True)  # Use the nested AuthorSerializer for the author field
 
     class Meta:
         model = Book
-        fields = ['id', 'name', 'genre', 'author', 'publish_date']
-
-    def get_author(self, obj):
-        return obj.author.name  # Return the author's name directly
+        fields = ['id', 'name', 'genre', 'author', 'start_date', 'finish_date']

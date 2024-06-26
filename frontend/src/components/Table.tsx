@@ -9,16 +9,18 @@ function Table({ details }: Props) {
               <th>Name</th>
               <th>Author</th>
               <th>Genre</th>
-              <th>Publish Date</th>
+              <th>Started</th>
+              <th>Finished</th>
             </tr>
           </thead>
           <tbody>
             {details.map((detail, index) => (
               <tr key={index}>
                 <td>{detail.name}</td>
-                <td>{detail.author}</td>
+                <td>{detail.author.name}</td>
                 <td>{detail.genre}</td>
-                <td>{detail.publish_date}</td>
+                <td>{detail.start_date}</td>
+                <td>{detail.finish_date}</td>
               </tr>
             ))}
           </tbody>
