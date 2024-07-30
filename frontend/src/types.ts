@@ -1,4 +1,6 @@
 type Detail = {
+    id: number
+    description: string
     name: string,
     author: {
         name: string
